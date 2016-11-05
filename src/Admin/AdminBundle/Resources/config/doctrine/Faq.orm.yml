@@ -1,0 +1,27 @@
+Admin\AdminBundle\Entity\Faq:
+    type: entity
+    table: faq
+    id:
+        idfaq:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: idFaq
+            generator:
+                strategy: IDENTITY
+    fields:
+        contenu:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+        objet:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+    lifecycleCallbacks: {  }

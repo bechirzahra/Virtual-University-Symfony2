@@ -1,0 +1,28 @@
+{% extends 'MyAppUlearnBundle::layout.html.twig' %}
+{%block Erasebody%}
+    
+ <div id='questionBlock'>
+	<div id="questionLabel" >
+	</div>
+     <div><select id="listResponses"  ></select>
+	<input type="button" value="Next Question" id='nextQuestion'/>
+</div>
+<div id="quizNote">
+<div>
+    
+
+{% block javascript %}
+
+    {% javascripts 
+    	'@MyAppUlearnBundle/Resources/public/js/jquery/jquery.js'
+    	'@MyAppUlearnBundle/Resources/public/js/quiz/quiz.js'
+    %}
+    	<script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script type="text/javascript">
+    	var listQuestions = $.parseJSON('{{ listQuestions | raw }}');
+    </script>
+
+{% endblock %}
+    
+{% endblock %}

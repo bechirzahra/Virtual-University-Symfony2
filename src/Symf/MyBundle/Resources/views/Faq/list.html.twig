@@ -1,0 +1,53 @@
+{% extends "MyAppUlearnBundle::layout.html.twig" %}
+{% block Erasebody %}
+<body><fieldset>
+    
+	
+	  <head>
+    <style>
+        
+table, td, th {
+    border: 1px solid #357AB7;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    height: 40px;
+    background-color: #357AB7;
+}
+</style>
+</head>
+		<!--  start content-table-inner ...................................................................... START -->
+<h1>FAQ</h1>
+<table border="">
+    <tr>
+        <td> Questions </td>
+        <td> Réponses </td>
+        
+        
+        {#<td> Suppression </td>
+        <td> Mise à jour </td>#}
+        {% for f in faqs %}
+        <tr>
+            <td>{{f.objet}}</td>
+            <td>{{f.contenu}}</td>
+            
+           
+          
+
+        </tr>
+    {% endfor%}
+     
+</tr>
+</table>
+    <td>           <a href="{{ path('faq_ajouter') }}">Ajouter</a>
+</td>
+
+  </fieldset>
+</body>
+{% endblock %}
+ 
+			

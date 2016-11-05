@@ -1,0 +1,34 @@
+{% extends 'EguliasQuizBundle::layout.html.twig' %}
+
+{% block content %}
+<h1>{{ 'Available Quizes' | trans( {} , 'Quiz' ) }}</h1>
+{% if ( (quizes | length) == 0 ) %}
+    <a class="btn" href="{{ path('egulias_quiz_add') }}">Add Quiz</a>
+{% endif %}
+<table>
+  <thead>
+    <th>{{ 'Quiz Name' | trans( {} , 'Quiz' ) }}</th>
+    <th>{{ 'Questions' | trans( {} , 'Quiz' ) }}</th>
+    <th>{{ 'Actions' | trans( {} , 'Quiz' ) }}</th>
+  </thead>
+  <tbody>
+  {% for quiz  in quizes  %}
+    <tr>
+      <td>{{ quiz.name  }}</td>
+      <td>
+      {% for question in quiz.questions  %}
+        {{ question.question.name }},
+      {% endfor %}
+      </td>
+      <td>
+        <a href="{{ path('egulias_quiz_edit', {'id':quiz.id}) }}">Modify</a> |
+        <a href="{{ path('egulias_quiz_take', {'id':quiz.id}) }}">Take</a>   |
+        <a href="{{ path('egulias_selected_quiz_answers', {'id':quiz.id}) }}">See them</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
+

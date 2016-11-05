@@ -1,0 +1,132 @@
+{% extends 'MyAppUlearnBundle::layout.html.twig' %}
+
+{%block espace%}
+<div class="gwlogo clearfix">
+{% if app.user is not null %}
+    <div class="field field-name-field-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="{{asset('images/EspaceEt.png')}}" width="323" height="90" alt="ULearn" title="Ulearn" /></div> </div></div>
+
+{% endif %}
+</div>
+   {%endblock%}
+
+{% block nav %}
+ <div class="panel-panel panel-col-top">
+      <div class="inside"><div class="panel-pane pane-gwu-primary-navigation" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="menu-wrapper"><div id="menu-top"><div class="menu-block-wrapper menu-block-2 menu-name-menu-division-menu parent-mlid-0 menu-level-1">
+  <ul class="menu">
+      {% if app.user is not null %}
+<li class="first leaf has-children menu-mlid-784"><span title=""><a href="{{path("homeEt")}}">Acceuil</a></span></li>
+<li class="leaf has-children menu-mlid-785"><span title=""><a href="{{path("fos_user_profile_show")}}">Profil</a></span></li>
+<li class="leaf has-children menu-mlid-786"><span title=""><a href="{{path("my_app_cours_homepage")}}">Cours</a></span></li>
+<li class="leaf has-children menu-mlid-787"><span title=""><a href="{{path("testA")}}">Examen</a></span></li>
+<li class="last leaf has-children menu-mlid-1594"><span title=""><a href="{{path("listStageEt")}}">Stage</a></span></li>
+<li class="last leaf has-children menu-mlid-1598"><span title=""><a href="{{path("listC")}}">Evaluation</a></span></li>
+
+
+
+  
+      {% endif %}
+
+</ul>
+            </div>
+
+</div></div>  </div>
+
+  
+  </div>
+</div>
+    </div>
+
+{% endblock %}
+
+{%block Erasebody%}
+ 
+   <html><head><centre>
+           <font color="#010001"> <h4>Examen Session principal 2010</h4></font>
+           
+<script language="JavaScript">
+function getScore() {
+var score; score = 0;
+var numQues=6;
+if (document.quizz.question1[2].checked == true) score++;
+if (document.quizz.question2[1].checked == true) score++;
+if (document.quizz.question3[1].checked == true) score++;
+if (document.quizz.question4[1].checked == true) score++;
+if (document.quizz.question5[3].checked == true)score++;
+if (document.quizz.question6[1].checked == true) score++;
+
+window.alert("score : "+ score*100/numQues + "%"); }
+</script> </head>
+<body>
+<p><font color="#010001"><h3>Ceci est un test &agrave; choix multiples</h3></font></p>
+<form name= "quizz"> 
+<table border="3" Bgcolor="White">
+        <tr><td>
+                <table><tr><td>
+                         
+                        <td>
+                            <font color="#6D0075"><strong>   1. Java est un langage:<br></strong></font>
+                    <li><input type="radio" name="question1" value="1">  Compilé </li>
+                    <li><input type="radio" name="question1" value="2">  Interprété </li>
+                    <li><input type="radio" name="question1" value="3"> Compilé et interprété</li></font>
+<br>
+</td></tr></table>
+                <table><tr><td>
+                         
+                        <td>
+                            <font color="#6D0075"><strong>2.Java est un langage dévéloppé par:<br></strong></font>
+                    <li><input type="radio" name="question2" value="1"> Hewlett-Packard</li>
+                    <li><input type="radio" name="question2" value="2"> Sun Microsystems</li>
+                   <li><input type="radio" name="question2" value="3"> Oracle</li>
+
+<br></td></tr></table>
+                <table><tr><td>
+                          
+                        <td>
+                            <font color="#6D0075"><strong>3. Pour la classe B d´efinie comme suit:
+class B {
+public B(){System.out.print(”Ciao”);};
+public B(int i) {this(); System.out.println(”Bonjour ”+i);};
+}
+qu’affichera l’instruction suivante?
+B monB=new B(2003);:</strong></font><br>
+<li><input type="radio" name="question3" value="1"> erreur de compilation</li>
+<li><input type="radio" name="question3" value="2"> nonCiaoBonjour 2003<br></td></tr></table>
+                <table><tr><td>
+                      
+                        <td>
+                            <font color="#6D0075"><strong>4. La liaison tardive est essentielle pour assurer:</strong></font><br>
+<li><input type="radio" name="question4" value="1">l’encapsulation</li>
+<li><input type="radio" name="question4" value="2"> le polymorphisme</li>
+<li><input type="radio" name="question4" value="2"> l’héritage</li>
+<li><input type="radio" name="question4" value="2"> la marginalisation</li>
+<li><br></td></tr></table>
+                <table><tr><td>
+                            
+                        <td>
+                            <font color="#6D0075"><strong>5. JPour spécifier que la valeur d'une variable ne peut changer, on la déclare comme une constante avec le mot réservé ::</strong></font><br>
+<li><input type="radio" name="question5" value="1"> finalize</li>
+<li><input type="radio" name="question5" value="2"> const</li>
+<li><input type="radio" name="question5" value="1"> define</li>
+<li><input type="radio" name="question5" value="2"> final</li>
+<br></td></tr></table>
+                <table><tr><td>
+                          
+                        <td>
+                            <font color="#6D0075"><strong>6.De quel type primitif est le littéral 25.5F ?:</strong></font><br>
+                <li><input type="radio" name="question6" value="1"> double</li>
+                <li><input type="radio" name="question6" value="2"> float</li>
+                <li><input type="radio" name="question6" value="3"> long </li>
+                <br></td></tr></table> 
+              
+
+<p align="center"> 
+<INPUT type="button" value="Score obtenu" onClick="getScore(this.form)">
+</p>
+
+</form>    </body></html>
+{% endblock %}

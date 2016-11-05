@@ -1,0 +1,35 @@
+{# empty Twig template #}
+{%extends "MyAppUlearnBundle::layout.html.twig"%}
+
+{% block Erasebody%}
+  
+ <html>
+    
+    <head> <title> Formulaire Mail</title>
+    </head>
+    
+    <form action="{{ path('my_app_mail_sendMail')}}" method="POST" >
+        <h1> Votre Boite Mail </h1>
+        <br/>
+         <br/>
+         <br/>
+         <h2>
+         Sujet :       
+         </h2>
+         <input type="text" name="Subject">
+          <br/>
+          <h2>
+          Email :
+          </h2>
+        <input type="text" name="email">
+          <br/>
+         <h2>
+         Texte :
+          </h2>
+          <textarea name="message" ></textarea> 
+        <input type="submit" name="send"/>
+          
+    </form>  
+ 
+</html>
+{% endblock %}  

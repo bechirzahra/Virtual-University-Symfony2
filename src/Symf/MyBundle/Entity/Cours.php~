@@ -1,0 +1,301 @@
+<?php
+
+namespace Symf\MyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Cours
+ *
+ * @ORM\Table(name="cours", indexes={@ORM\Index(name="idMatiere", columns={"idModule"}), @ORM\Index(name="idEnseignant", columns={"idEnseignant"}), @ORM\Index(name="idResponsable", columns={"idResponsable"})})
+ * @ORM\Entity
+ */
+class Cours
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idCours", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcours;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomCours", type="string", length=30, nullable=false)
+     */
+    private $nomcours;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="valider", type="boolean", nullable=true)
+     */
+    private $valider;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cheminCours", type="string", length=100, nullable=false)
+     */
+    private $chemincours;
+
+    /**
+     * @var \Symf\MyBundle\Entity\Module
+     *
+     * @ORM\ManyToOne(targetEntity="Symf\MyBundle\Entity\Module")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idModule", referencedColumnName="idModule")
+     * })
+     */
+    private $idmodule;
+
+    /**
+     * @var \Symf\MyBundle\Entity\FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="Symf\MyBundle\Entity\FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idResponsable", referencedColumnName="id")
+     * })
+     */
+    private $idresponsable;
+
+    /**
+     * @var \Symf\MyBundle\Entity\FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="Symf\MyBundle\Entity\FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idEnseignant", referencedColumnName="id")
+     * })
+     */
+    private $idenseignant;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Symf\MyBundle\Entity\FosUser", mappedBy="idcours")
+     */
+    private $idetudiant;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idetudiant = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    /**
+     * Get idcours
+     *
+     * @return integer 
+     */
+    public function getIdcours()
+    {
+        return $this->idcours;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Cours
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set nomcours
+     *
+     * @param string $nomcours
+     * @return Cours
+     */
+    public function setNomcours($nomcours)
+    {
+        $this->nomcours = $nomcours;
+
+        return $this;
+    }
+
+    /**
+     * Get nomcours
+     *
+     * @return string 
+     */
+    public function getNomcours()
+    {
+        return $this->nomcours;
+    }
+
+    /**
+     * Set valider
+     *
+     * @param boolean $valider
+     * @return Cours
+     */
+    public function setValider($valider)
+    {
+        $this->valider = $valider;
+
+        return $this;
+    }
+
+    /**
+     * Get valider
+     *
+     * @return boolean 
+     */
+    public function getValider()
+    {
+        return $this->valider;
+    }
+
+    /**
+     * Set chemincours
+     *
+     * @param string $chemincours
+     * @return Cours
+     */
+    public function setChemincours($chemincours)
+    {
+        $this->chemincours = $chemincours;
+
+        return $this;
+    }
+
+    /**
+     * Get chemincours
+     *
+     * @return string 
+     */
+    public function getChemincours()
+    {
+        return $this->chemincours;
+    }
+
+    /**
+     * Set idmodule
+     *
+     * @param \Symf\MyBundle\Entity\Module $idmodule
+     * @return Cours
+     */
+    public function setIdmodule(\Symf\MyBundle\Entity\Module $idmodule = null)
+    {
+        $this->idmodule = $idmodule;
+
+        return $this;
+    }
+
+    /**
+     * Get idmodule
+     *
+     * @return \Symf\MyBundle\Entity\Module 
+     */
+    public function getIdmodule()
+    {
+        return $this->idmodule;
+    }
+
+    /**
+     * Set idresponsable
+     *
+     * @param \Symf\MyBundle\Entity\FosUser $idresponsable
+     * @return Cours
+     */
+    public function setIdresponsable(\Symf\MyBundle\Entity\FosUser $idresponsable = null)
+    {
+        $this->idresponsable = $idresponsable;
+
+        return $this;
+    }
+
+    /**
+     * Get idresponsable
+     *
+     * @return \Symf\MyBundle\Entity\FosUser 
+     */
+    public function getIdresponsable()
+    {
+        return $this->idresponsable;
+    }
+
+    /**
+     * Set idenseignant
+     *
+     * @param \Symf\MyBundle\Entity\FosUser $idenseignant
+     * @return Cours
+     */
+    public function setIdenseignant(\Symf\MyBundle\Entity\FosUser $idenseignant = null)
+    {
+        $this->idenseignant = $idenseignant;
+
+        return $this;
+    }
+
+    /**
+     * Get idenseignant
+     *
+     * @return \Symf\MyBundle\Entity\FosUser 
+     */
+    public function getIdenseignant()
+    {
+        return $this->idenseignant;
+    }
+
+    /**
+     * Add idetudiant
+     *
+     * @param \Symf\MyBundle\Entity\FosUser $idetudiant
+     * @return Cours
+     */
+    public function addIdetudiant(\Symf\MyBundle\Entity\FosUser $idetudiant)
+    {
+        $this->idetudiant[] = $idetudiant;
+
+        return $this;
+    }
+
+    /**
+     * Remove idetudiant
+     *
+     * @param \Symf\MyBundle\Entity\FosUser $idetudiant
+     */
+    public function removeIdetudiant(\Symf\MyBundle\Entity\FosUser $idetudiant)
+    {
+        $this->idetudiant->removeElement($idetudiant);
+    }
+
+    /**
+     * Get idetudiant
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIdetudiant()
+    {
+        return $this->idetudiant;
+    }
+}

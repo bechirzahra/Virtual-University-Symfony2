@@ -1,0 +1,70 @@
+Stage:
+    type: entity
+    table: stage
+    indexes:
+        idChefEntreprise:
+            columns:
+                - idChefEntreprise
+        idEtudiant:
+            columns:
+                - idEtudiant
+    id:
+        idstage:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: idStage
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomentreprise:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+            column: nomEntreprise
+        duree:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+        domaine:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+        date:
+            type: date
+            nullable: false
+            comment: ''
+        description:
+            type: string
+            nullable: false
+            length: 300
+            fixed: false
+            comment: ''
+    manyToOne:
+        idchefentreprise:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idChefEntreprise:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idetudiant:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idEtudiant:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,30 @@
+Module:
+    path:     /
+    defaults: { _controller: "MyAppUlearnBundle:Module:index" }
+
+Module_show:
+    path:     /{id}/show
+    defaults: { _controller: "MyAppUlearnBundle:Module:show" }
+
+Module_new:
+    path:     /new
+    defaults: { _controller: "MyAppUlearnBundle:Module:new" }
+
+Module_create:
+    path:     /create
+    defaults: { _controller: "MyAppUlearnBundle:Module:create" }
+    requirements: { _method: post }
+
+Module_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyAppUlearnBundle:Module:edit" }
+
+Module_update:
+    path:     /{id}/update
+    defaults: { _controller: "MyAppUlearnBundle:Module:update" }
+    requirements: { _method: post|put }
+
+Module_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MyAppUlearnBundle:Module:delete" }
+    requirements: { _method: post|delete }

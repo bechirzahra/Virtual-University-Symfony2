@@ -1,0 +1,78 @@
+<?php
+
+namespace MyApp\rihabBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Certification
+ *
+ * @ORM\Table(name="certification", indexes={@ORM\Index(name="idEtudiant", columns={"idAdmin"})})
+ * @ORM\Entity
+ */
+class Certification
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idCertification", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcertification;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="duree", type="string", length=30, nullable=false)
+     */
+    private $duree;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateObtention", type="date", nullable=false)
+     */
+    private $dateobtention;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomCertif", type="string", length=30, nullable=false)
+     */
+    private $nomcertif;
+
+    /**
+     * @var \FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idAdmin", referencedColumnName="id")
+     * })
+     */
+    private $idadmin;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="FosUser", inversedBy="idcertification")
+     * @ORM\JoinTable(name="resultat",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idCertification", referencedColumnName="idCertification")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="idEtudiant", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $idetudiant;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idetudiant = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

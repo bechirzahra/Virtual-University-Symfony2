@@ -1,0 +1,73 @@
+<?php
+
+namespace MyApp\rihabBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Examen
+ *
+ * @ORM\Table(name="examen", indexes={@ORM\Index(name="idEnseignant", columns={"idEnseignant"}), @ORM\Index(name="idMatiere", columns={"idModule"})})
+ * @ORM\Entity
+ */
+class Examen
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idExamen", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idexamen;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="duree", type="string", length=30, nullable=false)
+     */
+    private $duree;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var \Module
+     *
+     * @ORM\ManyToOne(targetEntity="Module")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idModule", referencedColumnName="idModule")
+     * })
+     */
+    private $idmodule;
+
+    /**
+     * @var \FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idEnseignant", referencedColumnName="id")
+     * })
+     */
+    private $idenseignant;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="FosUser", mappedBy="idexamen")
+     */
+    private $idetudiant;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idetudiant = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

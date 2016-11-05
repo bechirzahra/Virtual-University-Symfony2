@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="{{ asset('bundles/eguliasquiz/css/bootstrap.min.css') }}" type="text/css" media="all" />
+        <script type="text/css">
+          body {padding-top: 60px;}
+        </script>
+        {% block extra_css %}{% endblock %}
+        <title>{% block quiz_bundle_title %}Quiz Bundle{% endblock %}</title>
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            window.jQuery || document.write('<script src="{{ asset('components/jquery/jquery.min.js') }}"><\/script>')
+        </script>
+
+        {% block extra_js %}{% endblock %}
+    </head>
+    <body>
+        <div id="quiz-wrapper" class="container-fluid">
+          {% block navigation %}
+          <div class="sidebar">
+            <p><a href="{{ path('egulias_quiz_question') }}">Questions</a></p>
+            <p><a href="{{ path('egulias_quiz_panel') }}">Quizes</a></p>
+            <p><a href="{{ path('egulias_quiz_answers') }}">Answers List</a></p>
+          </div>
+          {% endblock %}
+          <div class="content">
+            {% block quiz_bundle_breadcrumb %}
+            {% endblock %}
+            {% block content %}{% endblock %}
+          </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+{# empty Twig template #}
+   {% extends "MyAppUlearnBundle::layout.html.twig" %}
+
+   
+  
+
+       
+    {% block Erasebody %}
+
+
+       {# <h1>Mise à jour d'un Film </h1>
+<form action="" method="post">
+    {{form_widget(Form)}}
+    <input type="submit" value="Metter à jour "/>
+    
+</form>  
+  {% endblock %}   #}
+  
+  
+  <h1> Accepter User </h1>
+<form method="post" {{ form_enctype(Form) }}>
+<table>
+    
+   
+    <tr>
+        <td>
+           {{form_label(Form.nom)}}
+        </td>
+        <td>
+            {{form_widget(Form.nom)}}
+            {{form_errors(Form.nom)}}
+        </td>
+    </tr>
+    
+        <tr>
+        <td>
+           {{form_label(Form.prenom)}}
+        </td>
+        <td>
+            {{form_widget(Form.prenom)}}
+            {{form_errors(Form.prenom)}}
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+        {{form_label(Form.roles)}}
+        </td>
+        <td>
+            {{form_widget(Form.roles)}}
+            {{form_errors(Form.roles)}}
+        </td>
+    </tr>
+     <tr>
+        <td>
+        {{form_label(Form.username)}}
+        </td>
+        <td>
+            {{form_widget(Form.username)}}
+            {{form_errors(Form.username)}}
+        </td>
+    </tr>
+    
+     <tr>
+        <td>
+        {{form_label(Form.password)}}
+        </td>
+        <td>
+            {{form_widget(Form.password)}}
+            {{form_errors(Form.password)}}
+        </td>
+    </tr>
+    
+     <tr>
+        <td>
+        {{form_label(Form.sexe)}}
+        </td>
+        <td>
+            {{form_widget(Form.sexe)}}
+            {{form_errors(Form.sexe)}}
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            <input type="submit" value="{{ 'registration.submit'|trans }}"/>
+        </td>
+        <td>
+             <input type="reset" value="Annuler"/>
+        </td>
+    </tr>
+
+   
+</table>
+   {{form_rest(Form)}}     
+</form>
+{% endblock %}{# empty Twig template #}

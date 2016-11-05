@@ -1,0 +1,45 @@
+Ancienexamen:
+    type: entity
+    table: ancienexamen
+    indexes:
+        idEnseignant:
+            columns:
+                - idEnseignant
+        idModule:
+            columns:
+                - idModule
+    id:
+        idancienexamen:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: idAncienExamen
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: date
+            nullable: false
+            comment: ''
+    manyToOne:
+        idenseignant:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idEnseignant:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idmodule:
+            targetEntity: Module
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idModule:
+                    referencedColumnName: idModule
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

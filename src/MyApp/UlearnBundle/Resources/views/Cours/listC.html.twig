@@ -1,0 +1,78 @@
+ {% extends "MyAppUlearnBundle::layout.html.twig" %} 
+{%block espace%}
+<div class="gwlogo clearfix">
+{% if app.user is not null %}
+    <div class="field field-name-field-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="{{asset('images/EspaceEt.png')}}" width="323" height="90" alt="ULearn" title="Ulearn" /></div> </div></div>
+
+{% endif %}
+</div>
+   {%endblock%}
+
+{% block nav %}
+ <div class="panel-panel panel-col-top">
+      <div class="inside"><div class="panel-pane pane-gwu-primary-navigation" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="menu-wrapper"><div id="menu-top"><div class="menu-block-wrapper menu-block-2 menu-name-menu-division-menu parent-mlid-0 menu-level-1">
+  <ul class="menu">
+      {% if app.user is not null %}
+<li class="first leaf has-children menu-mlid-784"><span title=""><a href="{{path("homeEt")}}">Acceuil</a></span></li>
+<li class="leaf has-children menu-mlid-785"><span title=""><a href="{{path("fos_user_profile_show")}}">Profil</a></span></li>
+<li class="leaf has-children menu-mlid-786"><span title=""><a href="{{path("my_app_cours_homepage")}}">Cours</a></span></li>
+<li class="leaf has-children menu-mlid-787"><span title=""><a href="{{path("testA")}}">Examen</a></span></li>
+<li class="last leaf has-children menu-mlid-1594"><span title=""><a href="{{path("listStageEt")}}">Stage</a></span></li>
+<li class="last leaf has-children menu-mlid-1598"><span title=""><a href="{{path("listC")}}">Evaluation</a></span></li>
+
+
+
+  
+      {% endif %}
+
+</ul>
+            </div>
+
+</div></div>  </div>
+
+  
+  </div>
+</div>
+    </div>
+
+{% endblock %}
+       
+        {% block Erasebody %}
+        
+       
+            <h3>Rechercher </h3>
+<form  method="POST" action="" >
+    nom : <input type="text" name="nomCours"/>
+    <input type="submit" value="Chercher">
+</form>
+        <h3>Liste Des Cours </h3>
+<table border="1" method="POST">
+    <tr><th>ID</th>
+        <th>nom</th>
+        <th>date</th>
+        <th>Vote</th>
+    <th> Evaluer </th>
+     
+        </tr>
+{% for c in cours %}
+        <tr>
+            <td>{{c.idCours}}</td>
+            <td>{{c.nomCours}}</td>
+            <td>{{c.date|date('d/m/Y')}}</td>      
+            <td>{% include 'DCSRatingBundle:Rating:control.html.twig' with {'id' : 'c.idCours'} %}</td>
+            
+            <td><a href="{{path("Evaluation_ajouter",{'id':c.idCours})}}"> Evaluer </a></td>
+         {#  <td><a href="{{path("deleteFilm",{'id':p.id})}}"> Suprimer </a></td>   
+   #}
+            
+        </tr>
+{% endfor %} 
+
+</table>
+  
+{% endblock %}   

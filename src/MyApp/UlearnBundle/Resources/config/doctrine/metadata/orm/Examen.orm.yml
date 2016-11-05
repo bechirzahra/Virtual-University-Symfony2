@@ -1,0 +1,59 @@
+Examen:
+    type: entity
+    table: examen
+    indexes:
+        idEnseignant:
+            columns:
+                - idEnseignant
+        idMatiere:
+            columns:
+                - idModule
+    id:
+        idexamen:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: idExamen
+            generator:
+                strategy: IDENTITY
+    fields:
+        duree:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+        date:
+            type: date
+            nullable: false
+            comment: ''
+    manyToOne:
+        idmodule:
+            targetEntity: Module
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idModule:
+                    referencedColumnName: idModule
+            orphanRemoval: false
+        idenseignant:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idEnseignant:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        idetudiant:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: idexamen
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

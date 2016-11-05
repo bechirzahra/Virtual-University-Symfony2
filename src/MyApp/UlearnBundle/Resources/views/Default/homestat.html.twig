@@ -1,0 +1,102 @@
+{# empty Twig template #}
+{%extends "MyAppUlearnBundle::layout.html.twig"%}
+{%block espace%}
+     {% if app.user is  null %}
+    <div class="gwlogo clearfix">
+    <div class="field field-name-field-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="{{asset('images/ulearn.png')}}" width="100" height="90" alt="ULearn" title="ULearn" /></div></div>  
+
+  </div>
+    </div>
+    {% endif %}
+    {% if is_granted('ROLE_ENSEIGNANT') %}
+    <div class="gwlogo clearfix">
+    <div class="field field-name-field-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="{{asset('images/ulearn1.png')}}" width="323" height="90" alt="ULearn" title="ULearn" /></div></div>  
+
+  </div>
+    </div>
+    {% endif %}
+
+    {% if is_granted('ROLE_ETUDIANT') %}
+    <div class="gwlogo clearfix">
+    <div class="field field-name-field-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="{{asset('images/EspaceEt.png')}}" width="323" height="90" alt="ULearn" title="ULearn" /></div></div>  
+
+  </div>
+    </div>
+    {% endif %}
+    
+    {% if is_granted('ROLE_CHEFENTREPRISE') %}
+    <div class="gwlogo clearfix">
+    <div class="field field-name-field-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="{{asset('images/EspaceCh.png')}}" width="392" height="90" alt="ULearn" title="Ulearn" /></div></div>  
+
+  </div>
+    </div>
+    {% endif %}
+    
+     {% if is_granted('ROLE_ADMIN') %}
+    <div class="gwlogo clearfix">
+    <div class="field field-name-field-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="{{asset('images/EspaceAd.png')}}" width="323" height="90" alt="ULearn" title="ULearn" /></div></div>  
+
+  </div>
+    </div>
+    {% endif %}
+{%endblock%}
+
+
+
+{%block nav%}
+    {% if app.user is  null %}
+     <div class="panel-panel panel-col-top">
+      <div class="inside"><div class="panel-pane pane-gwu-primary-navigation" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="menu-wrapper"><div id="menu-top"><div class="menu-block-wrapper menu-block-2 menu-name-menu-division-menu parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf has-children menu-mlid-784"><span title=""><a href="{{path("Home")}}">Acceuil</a></span></li>
+<li class="leaf has-children menu-mlid-785"><span title=""><a href="{{path("symf_graphe_Pie")}}">Utilisateur</a></span></li>
+<li class="leaf has-children menu-mlid-786"><span title=""><a href="{{path("_grapheHistogramme")}}">Notes</a></span></li>
+<li class="leaf has-children menu-mlid-787"><span title=""><a href="{{path("Statistiques_sexe")}}">Homme/Femme</a></span></li>
+
+</ul></div>
+
+</div></div>  </div>
+
+  
+  </div>
+</div>
+    </div>
+    {% endif %}
+    {% if is_granted('ROLE_CHEFENTREPRISE') %}
+
+      <div class="panel-panel panel-col-top">
+      <div class="inside"><div class="panel-pane pane-gwu-primary-navigation" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="menu-wrapper"><div id="menu-top"><div class="menu-block-wrapper menu-block-2 menu-name-menu-division-menu parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf has-children menu-mlid-784"><span title=""><a href="{{path("homeCh")}}">Acceuil</a></span></li>
+<li class="leaf has-children menu-mlid-785"><span title=""><a href="{{path("symf_graphe_Pie")}}">Utilisateur</a></span></li>
+<li class="leaf has-children menu-mlid-786"><span title=""><a href="{{path("_grapheHistogramme")}}">Notes</a></span></li>
+<li class="leaf has-children menu-mlid-787"><span title=""><a href="{{path("Statistiques_sexe")}}">Homme/Femme</a></span></li>
+
+</ul></div>
+
+</div></div>  </div>
+
+  
+  </div>
+</div>
+    </div>
+    {% endif %}
+
+         {%endblock %}
+
+{% block Erasebody %}
+    
+    <div class="image">
+        <center><img typeof="foaf:Image" src="{{asset('images/stat.png')}}" width="700" height="378"  /></center></div>
+
+
+{% endblock %}
+

@@ -1,0 +1,68 @@
+<?php
+
+namespace Symf\MyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Questioncertif
+ *
+ * @ORM\Table(name="questioncertif", indexes={@ORM\Index(name="idCertification", columns={"idCertification"})})
+ * @ORM\Entity
+ */
+class Questioncertif
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idQCertif", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idqcertif;
+
+    /**
+     * @var \Symf\MyBundle\Entity\Certification
+     *
+     * @ORM\ManyToOne(targetEntity="Symf\MyBundle\Entity\Certification")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idCertification", referencedColumnName="idCertification")
+     * })
+     */
+    private $idcertification;
+
+
+
+    /**
+     * Get idqcertif
+     *
+     * @return integer 
+     */
+    public function getIdqcertif()
+    {
+        return $this->idqcertif;
+    }
+
+    /**
+     * Set idcertification
+     *
+     * @param \Symf\MyBundle\Entity\Certification $idcertification
+     * @return Questioncertif
+     */
+    public function setIdcertification(\Symf\MyBundle\Entity\Certification $idcertification = null)
+    {
+        $this->idcertification = $idcertification;
+
+        return $this;
+    }
+
+    /**
+     * Get idcertification
+     *
+     * @return \Symf\MyBundle\Entity\Certification 
+     */
+    public function getIdcertification()
+    {
+        return $this->idcertification;
+    }
+}

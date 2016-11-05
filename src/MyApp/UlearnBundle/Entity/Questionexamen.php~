@@ -1,0 +1,84 @@
+<?php
+
+namespace MyApp\rihabBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Questionexamen
+ *
+ * @ORM\Table(name="questionexamen", indexes={@ORM\Index(name="idExamen", columns={"idExamen"})})
+ * @ORM\Entity
+ */
+class Questionexamen
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idQuestion", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idquestion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="corps", type="string", length=200, nullable=false)
+     */
+    private $corps;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="choix1", type="string", length=200, nullable=false)
+     */
+    private $choix1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="choix2", type="string", length=200, nullable=false)
+     */
+    private $choix2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="choix3", type="string", length=200, nullable=false)
+     */
+    private $choix3;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="choix4", type="string", length=200, nullable=false)
+     */
+    private $choix4;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bonneReponse", type="string", length=200, nullable=false)
+     */
+    private $bonnereponse;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="barem", type="integer", nullable=false)
+     */
+    private $barem;
+
+    /**
+     * @var \Examen
+     *
+     * @ORM\ManyToOne(targetEntity="Examen")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idExamen", referencedColumnName="idExamen")
+     * })
+     */
+    private $idexamen;
+
+
+}

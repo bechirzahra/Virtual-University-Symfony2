@@ -1,0 +1,15 @@
+symf_graphe_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SymfGrapheBundle:Default:index }
+symf_graphe_Chart_Line:
+    path:     /ChartLine
+    defaults: { _controller: SymfGrapheBundle:Graphe:ChartLine }
+symf_graphe_Pie:
+    path:     /Pie
+    defaults: { _controller: SymfGrapheBundle:Graphe:chartPie } 
+_grapheHistogramme:
+    path:     /histogramme
+    defaults: { _controller: SymfGrapheBundle:Graphe:chartHistogramme } 
+Statistiques_sexe:
+    pattern:  /statSexe
+    defaults: { _controller: SymfGrapheBundle:Graphe:StatistiquesAdherents}    

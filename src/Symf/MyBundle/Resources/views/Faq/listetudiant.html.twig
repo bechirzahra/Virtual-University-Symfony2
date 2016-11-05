@@ -1,0 +1,72 @@
+
+{%extends "MyAppUlearnBundle::layout.html.twig"%}
+
+{%block Erasebody%}
+    <h1>FAQ </h1>
+
+        
+    
+    
+    <head>
+    <style>
+        
+table, td, th {
+    border: 1px solid #357AB7;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    height: 40px;
+}
+</style>
+</head>
+        
+        
+         <table border="1"width="100%" cellpadding="0" cellspacing="0" id="product-table">
+                                    
+				<tbody><tr>
+                                        
+					<th class="table-header-repeat line-left"><a>Questions</a></th>
+					<th class="table-header-repeat line-left"><a>Reponses</a></th>
+					
+				</tr>
+				{% for faq in faqs %}
+				<tr>
+					<td>{{faq.objet}}</td>
+					<td>{{faq.contenu}}</td>
+					
+                                </tr>
+				{% endfor %}
+                               </tbody>
+				</table>
+				<!--  end product-table................................... --> 
+				</form>
+			</div>
+			<!--  end content-table  -->
+		
+			
+			<div class="clear"></div>
+		 
+		</div>
+		<!--  end content-table-inner ............................................END  -->
+		</td>
+		<td id="tbl-border-right"></td>
+	</tr>
+	<tr>
+		<th class="sized bottomleft"></th>
+		<td id="tbl-border-bottom">&nbsp;</td>
+		<th class="sized bottomright"></th>
+	</tr>
+	</tbody></table>
+	<div class="clear">&nbsp;</div>
+
+</div>
+<!--  end content -->
+<div class="clear">&nbsp;</div>
+</div>
+ {%endblock %}
+
+{# empty Twig template #}

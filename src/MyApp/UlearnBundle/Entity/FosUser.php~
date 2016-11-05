@@ -1,0 +1,211 @@
+<?php
+
+namespace MyApp\rihabBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * FosUser
+ *
+ * @ORM\Table(name="fos_user", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_957A647992FC23A8", columns={"username_canonical"}), @ORM\UniqueConstraint(name="UNIQ_957A6479A0D96FBF", columns={"email_canonical"})})
+ * @ORM\Entity
+ */
+class FosUser
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=255, nullable=false)
+     */
+    private $username;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="username_canonical", type="string", length=255, nullable=false)
+     */
+    private $usernameCanonical;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_canonical", type="string", length=255, nullable=false)
+     */
+    private $emailCanonical;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="enabled", type="boolean", nullable=false)
+     */
+    private $enabled;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=255, nullable=false)
+     */
+    private $salt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_login", type="datetime", nullable=true)
+     */
+    private $lastLogin;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="locked", type="boolean", nullable=false)
+     */
+    private $locked;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="expired", type="boolean", nullable=false)
+     */
+    private $expired;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="expires_at", type="datetime", nullable=true)
+     */
+    private $expiresAt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="confirmation_token", type="string", length=255, nullable=true)
+     */
+    private $confirmationToken;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="password_requested_at", type="datetime", nullable=true)
+     */
+    private $passwordRequestedAt;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="array", nullable=false)
+     */
+    private $roles;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="credentials_expired", type="boolean", nullable=false)
+     */
+    private $credentialsExpired;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="credentials_expire_at", type="datetime", nullable=true)
+     */
+    private $credentialsExpireAt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexe", type="string", length=255, nullable=true)
+     */
+    private $sexe;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
+     */
+    private $prenom;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="naissance", type="date", nullable=true)
+     */
+    private $naissance;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Cours", inversedBy="idetudiant")
+     * @ORM\JoinTable(name="evaluation",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idEtudiant", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="idCours", referencedColumnName="idCours")
+     *   }
+     * )
+     */
+    private $idcours;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Examen", inversedBy="idetudiant")
+     * @ORM\JoinTable(name="note",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="idEtudiant", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="idExamen", referencedColumnName="idExamen")
+     *   }
+     * )
+     */
+    private $idexamen;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Certification", mappedBy="idetudiant")
+     */
+    private $idcertification;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idcours = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idexamen = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idcertification = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

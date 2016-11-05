@@ -1,0 +1,7 @@
+services:
+  # [...] Vos autres services
+  redirect.after.login:
+    class: University\UserBundle\Redirection\AfterLoginRedirection
+    arguments: [@router]
+ 
+  

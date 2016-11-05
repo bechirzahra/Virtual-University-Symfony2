@@ -1,0 +1,144 @@
+my_app_ulearn_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MyAppUlearnBundle:Default:index }
+    
+Home:
+    pattern: /home
+    defaults: { _controller: MyAppUlearnBundle:Default:home }
+
+homestat:
+    pattern: /homestat
+    defaults: { _controller: MyAppUlearnBundle:Default:homestat }
+
+homeEns:
+    pattern: /homeEns
+    defaults: { _controller: MyAppUlearnBundle:Enseignant:homeEns }
+
+homeEt:
+    pattern: /homeEt
+    defaults: { _controller: MyAppUlearnBundle:Etudiant:homeEt }
+
+homeAd:
+    pattern: /homeAd
+    defaults: { _controller: MyAppUlearnBundle:Admin:homeAd }
+    
+homeCh:
+    pattern: /homeCh
+    defaults: { _controller: MyAppUlearnBundle:ChefEntreprise:homeCh }
+
+listC:
+    pattern:  /listC
+    defaults: { _controller: MyAppUlearnBundle:Cours:listC }
+    
+    
+listUser:
+    pattern:  /listUser
+    defaults: { _controller: MyAppUlearnBundle:Admin:listUser }
+    
+accepter:
+    pattern:  /accepter/{id}
+    defaults: { _controller: MyAppUlearnBundle:Admin:accepter }
+
+deleteUser:
+    pattern:  /deleteUser/{id}
+    defaults: { _controller: MyAppUlearnBundle:Admin:deleteUser }
+    
+listStage:
+    pattern:  /listStage
+    defaults: { _controller: MyAppUlearnBundle:Stage:listStage }
+
+listStageEt:
+    pattern:  /listStageEt
+    defaults: { _controller: MyAppUlearnBundle:Stage:listStageEt }
+    
+addStage:
+    pattern:  /addStage
+    defaults: { _controller: MyAppUlearnBundle:Stage:addStage }
+
+inscription:
+    pattern:  /inscription
+    defaults: { _controller: MyAppUlearnBundle:Admin:inscription }
+
+updateStage:
+    pattern:  /updateStage/{id}
+    defaults: { _controller: MyAppUlearnBundle:Stage:updateStage }   
+
+deleteStage:
+    pattern:  /deleteStage/{id}
+    defaults: { _controller: MyAppUlearnBundle:Stage:deleteStage }
+
+_my_app_Module:
+    resource: "@MyAppUlearnBundle/Resources/config/routing/module.yml"
+    prefix:   /Module
+
+_my_app_CERT:
+    resource: "@MyAppUlearnBundle/Resources/config/routing/certification.yml"
+    prefix:   /CERT    
+
+Evaluation_ajouter:
+    pattern:  /ajouterEvaluation/{id}/
+    defaults: { _controller: MyAppUlearnBundle:Evaluation:ajouter }
+    
+my_app_cours_homepage:
+    path:     /cours
+    defaults: { _controller: MyAppUlearnBundle:Default:cours }
+
+my_app_cours_UploadCours:
+    path:     /uploadcours
+    defaults: { _controller: MyAppUlearnBundle:Default:UploadCours }
+    
+my_app_cours_Upload:
+    path:     /upload
+    defaults: { _controller: MyAppUlearnBundle:Default:Upload }
+
+my_app_cours_ContactUs:
+    pattern:  /ContactUs
+    defaults:    { _controller: MyAppUlearnBundle:Default:ContactUs }
+    
+myapp_ulearn_listResponses:
+   pattern:  /listResponses/{questionID}
+   defaults: { _controller: MyAppUlearnBundle:Quiz:listResponses }
+ 
+myapp_ulearn_checkReponse:
+   pattern:  /checkReponse/{reponseID}
+   defaults: { _controller: MyAppUlearnBundle:Quiz:checkReponse }
+
+my_app_ulearn_quizreponse:
+   resource: "@MyAppUlearnBundle/Resources/config/routing/quizreponse.yml"
+   prefix:   /quizreponse
+
+my_app_ulearn_quizquestion:
+   resource: "@MyAppUlearnBundle/Resources/config/routing/quizquestion.yml"
+   prefix:   /quizquestion
+   
+testA:
+   path:     /testA
+   defaults: { _controller: "MyAppUlearnBundle:Qcm:testA" } 
+   
+testB:
+   path:     /testB
+   defaults: { _controller: "MyAppUlearnBundle:Qcm:testB" }  
+   
+testC:
+   path:     /testC
+   defaults: { _controller: "MyAppUlearnBundle:Qcm:testC" }      
+
+resultat:
+   path:  /resultat
+   defaults: { _controller: "MyAppUlearnBundle:Qcm:resultat" }
+
+ListeExamens:
+   pattern:  /ListeExamens
+   defaults: { _controller: MyAppUlearnBundle:Examen:ListeExamens }
+
+deleteExamen:
+   pattern:  /deleteExamen/{idExamen}
+   defaults: { _controller:  MyAppUlearnBundle:Examen:deleteExamen }
+
+updateExamen:
+   pattern:  /updateExamen/{idExamen}
+   defaults: { _controller:  MyAppUlearnBundle:Examen:updateExamen }
+   
+listeStagePdf:
+    path:     /pdf
+    defaults: { _controller: MyAppUlearnBundle:Stage:pdf }

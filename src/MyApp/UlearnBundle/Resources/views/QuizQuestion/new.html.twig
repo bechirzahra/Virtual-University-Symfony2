@@ -1,0 +1,58 @@
+{% extends 'MyAppUlearnBundle::layout.html.twig' %}
+
+{%block espace%}
+<div class="gwlogo clearfix">
+{% if app.user is not null %}
+    <div class="field field-name-field-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="{{asset('images/ulearn1.png')}}" width="323" height="90" alt="ULearn" title="Ulearn" /></div> </div></div>
+
+{% endif %}
+</div>
+   {%endblock%}
+
+{% block nav %}
+ <div class="panel-panel panel-col-top">
+      <div class="inside"><div class="panel-pane pane-gwu-primary-navigation" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="menu-wrapper"><div id="menu-top"><div class="menu-block-wrapper menu-block-2 menu-name-menu-division-menu parent-mlid-0 menu-level-1">
+  <ul class="menu">
+      {% if app.user is not null %}
+<li class="first leaf has-children menu-mlid-784"><span title=""><a href="{{path("homeEns")}}">Acceuil</a></span></li>
+<li class="leaf has-children menu-mlid-785"><span title=""><a href="{{path("fos_user_profile_show")}}">Profil</a></span></li>
+<li class="leaf has-children menu-mlid-786"><span title=""><a href="{{path("my_app_cours_UploadCours")}}">Cours</a></span></li>
+<li class="leaf has-children menu-mlid-787"><span title=""><a href="{{path("quizquestion")}}">Examen</a></span></li>
+
+
+
+  
+      {% endif %}
+
+</ul>
+            </div>
+
+</div></div>  </div>
+
+  
+  </div>
+</div>
+    </div>
+
+{% endblock %}
+
+{%block Erasebody%}
+{% block body -%}
+    <h1>Examen Question </h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('quizquestion') }}">
+            Retour à la liste
+        </a>
+    </li>
+</ul>
+{% endblock %}
+{% endblock %}

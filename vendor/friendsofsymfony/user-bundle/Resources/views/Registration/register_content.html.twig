@@ -1,0 +1,70 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    {{ form_errors(form) }}
+	{{ form_widget(form._token) }}
+    
+        <div class="registration">
+		<table cellspacing="8" cellpadding="8" width="100%">
+			<tr>
+				<th>{{ form_label(form.nom) }}</th>
+				<td>{{ form_widget(form.nom) }}</td>
+			<tr>
+			<tr>
+				<th>{{ form_label(form.prenom) }}</th>
+				<td>{{ form_widget(form.prenom) }}</td>
+                        <tr>
+			<tr>
+				<th>{{ form_label(form.sexe) }}</th>
+				<td>{{ form_widget(form.sexe) }}</td>
+			
+			<tr>
+			<tr>
+				<th>{{ form_label(form.naissance) }}</th>
+				<td>{{ form_widget(form.naissance) }}</td>
+			<tr>
+			<tr>
+				<th>{{ form_label(form.username) }}</th>
+				<td>{{ form_widget(form.username) }}</td>
+			<tr>
+			<tr>
+				<th>{{ form_label(form.email) }}</th>
+				<td>{{ form_widget(form.email) }}</td>
+			<tr>
+			<tr>
+				<th>{{ form_label(form.plainPassword.first) }}</th>
+				<td>{{ form_widget(form.plainPassword.first) }}</td>
+			<tr>
+			<tr>
+				<th>{{ form_label(form.plainPassword.second) }}</th>
+				<td>{{ form_widget(form.plainPassword.second) }}</td>
+			<tr>
+			<tr>
+				<th>{{ form_label(form.roles) }}</th>
+				<td>{{ form_widget(form.roles) }}</td>
+                        
+                        <tr>
+			
+                           
+             
+		</table>
+        <br>
+        <br>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <input align='center' type="submit" value="{{ 'registration.submit'|trans }}" />
+        
+    </div>
+        <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</form>

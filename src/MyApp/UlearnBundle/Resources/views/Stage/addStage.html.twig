@@ -1,0 +1,80 @@
+{# empty Twig template #}
+{%extends "MyAppUlearnBundle::layout.html.twig"%}
+
+{%block espace%}
+<div class="gwlogo clearfix">
+{% if app.user is not null %}
+    <div class="field field-name-field-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="{{asset('images/EspaceCh.png')}}" width="392" height="90" alt="ULearn" title="Ulearn" /></div> </div></div>
+
+{% endif %}
+</div>
+   {%endblock%}
+   
+   
+
+{%block nav%}
+
+      <div class="panel-panel panel-col-top">
+      <div class="inside"><div class="panel-pane pane-gwu-primary-navigation" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="menu-wrapper"><div id="menu-top"><div class="menu-block-wrapper menu-block-2 menu-name-menu-division-menu parent-mlid-0 menu-level-1">
+  <ul class="menu">
+      {% if app.user is not null %}
+<li class="first leaf has-children menu-mlid-784"><span title=""><a href="{{path("homeCh")}}">Acceuil</a></span></li>
+<li class="leaf has-children menu-mlid-785"><span title=""><a href="{{path("fos_user_profile_show")}}">Profil</a></span></li>
+<li class="leaf has-children menu-mlid-786"><span title=""><a href="{{path("Home")}}">Cours</a></span></li>
+<li class="leaf has-children menu-mlid-787"><span title=""><a href="{{path("faq_lisetudiant")}}">Faq</a></span></li>
+<li class="leaf has-children menu-mlid-1594"><span title=""><a href="{{path("homestat")}}">Statistiques</a></span></li>
+<li class="last leaf has-children menu-mlid-1598"><span title=""><a href="{{path("listStage")}}">Stage</a></span></li>
+
+  
+      {% endif %}
+
+</ul>
+            </div>
+
+</div></div>  </div>
+
+  
+  </div>
+</div>
+    </div>
+         {%endblock %}
+   {% block Erasebody %}
+<h1>Ajout d'un Stage</h1> 
+        <br/>
+        <form action="" method="POST">
+            <table >
+             
+                <tr>
+                    <td>{{form_label(Form.nomEntreprise, "Entreprise: ")}}</td>
+                    <td>{{form_widget(Form.nomEntreprise)}}</td>
+                </tr>
+                <tr>
+                    <td>{{form_label(Form.duree, "Duree: ")}}</td>
+                    <td>{{form_widget(Form.duree)}}</td>
+                </tr>
+                <tr> 
+                    <td> {{form_label(Form.domaine, "Domaine: ")}}</td>
+                    <td>{{form_widget(Form.domaine)}}</td>
+                </tr>
+                <tr> 
+                    <td> {{form_label(Form.date, "Dtae: ")}}</td>
+                    <td>{{form_widget(Form.date)}}</td>
+                </tr>
+                <tr> 
+                    <td> {{form_label(Form.description, "Desc: ")}}</td>
+                    <td>{{form_widget(Form.description)}}</td>
+                </tr>
+                
+                {{ form_rest(Form)}}
+            </table>
+            <div>
+        <input class="buttonOK" type="submit" value="Ajouter" />
+    </div>
+        </form>
+            
+       {%endblock%}

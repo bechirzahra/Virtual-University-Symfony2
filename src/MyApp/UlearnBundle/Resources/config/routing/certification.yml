@@ -1,0 +1,30 @@
+CERT:
+    path:     /
+    defaults: { _controller: "MyAppUlearnBundle:Certification:index" }
+
+CERT_show:
+    path:     /{id}/show
+    defaults: { _controller: "MyAppUlearnBundle:Certification:show" }
+
+CERT_new:
+    path:     /new
+    defaults: { _controller: "MyAppUlearnBundle:Certification:new" }
+
+CERT_create:
+    path:     /create
+    defaults: { _controller: "MyAppUlearnBundle:Certification:create" }
+    requirements: { _method: post }
+
+CERT_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyAppUlearnBundle:Certification:edit" }
+
+CERT_update:
+    path:     /{id}/update
+    defaults: { _controller: "MyAppUlearnBundle:Certification:update" }
+    requirements: { _method: post|put }
+
+CERT_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MyAppUlearnBundle:Certification:delete" }
+    requirements: { _method: post|delete }

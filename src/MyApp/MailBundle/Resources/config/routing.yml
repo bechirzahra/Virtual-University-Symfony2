@@ -1,0 +1,11 @@
+my_app_mail_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MyAppMailBundle:Default:index }
+    
+my_app_mail_redirection:
+   path:     /redirection
+   defaults: { _controller: MyAppMailBundle:Default:redirection }
+   
+my_app_mail_sendMail:
+   path:     /sendMail
+   defaults: { _controller:  MyAppMailBundle:Default:sendMail }

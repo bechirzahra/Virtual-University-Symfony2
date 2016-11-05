@@ -1,0 +1,101 @@
+{% extends 'MyAppUlearnBundle::layout.html.twig' %}
+{%block Erasebody%}
+   <html><head><centre>
+           <font color="#010001"> <h4>____________Test 4____________</h4></font>
+<script language="JavaScript">
+function getScore() {
+var score; score = 0;
+var numQues=2;
+if (document.quizz.question1[0].checked == true) score++;
+if (document.quizz.question2[1].checked == true) score++;
+
+window.alert("score : "+ score*100/numQues + "%"); }
+</script> </head>
+<body>
+<p><font color="#010001"><h3>Ceci est un test &agrave; choix multiples. En fin de .... Bonne chance !!</h3></font></p>
+<form name= "quizz"> 
+<table border="3" Bgcolor="White">
+        <tr><td>
+                <table><tr><td>
+                            <div><img src="{{asset('')}}" width="150" height="100" alt="" /></td></div>
+                        <td>
+                            <font color="#6D0075"><strong>   1. Que signifie TCP ?:<br></strong></font>
+                    <li><input type="radio" name="question1" value="1"> Traduction Controlée Protocolaire</li>
+                    <li><input type="radio" name="question1" value="2"> Transmission Control Protocol</li>
+                    <li><input type="radio" name="question1" value="3"> Transmission Cellulaire Partagé</li></font>
+<br>
+</td></tr></table>
+                <table><tr><td>
+                            <div><img src="{{asset('')}}" width="150" height="100" alt="" /></div></td>
+                        <td>
+                            <font color="#6D0075"><strong>2.Que signifie IP ? :<br></strong></font>
+                    <li><input type="radio" name="question2" value="1"> Internet Protocol</li>
+                    <li><input type="radio" name="question2" value="2"> Intranet Protocol</li>
+<li><input type="radio" name="question2" value="3"> Inter-réseau Protocol</li>
+
+<br></td></tr></table>
+                <table><tr><td>
+                            <div><img src="{{asset('images/c4.PNG')}}" width="150" height="100" alt="" /></div></td>
+                        <td>
+                            <font color="#6D0075"><strong>3.L’éco-conduite a des effets positifs, en terme de sécurité routière:</strong></font><br>
+<li><input type="radio" name="question3" value="1"> oui</li>
+<li><input type="radio" name="question3" value="2"> non</li>
+
+<br></td></tr></table>
+                <table><tr><td>
+                            <div><img src="{{asset('images/d4.PNG')}}" width="150" height="100" alt="" /></div></td>
+                        <td>
+                            <font color="#6D0075"><strong>4. Je peux m'engager dans cette rue:</strong></font><br>
+<li><input type="radio" name="question4" value="1"> oui</li>
+<li><input type="radio" name="question4" value="2"> non</li>
+
+<li><br></td></tr></table>
+                <table><tr><td>
+                            <div><img src="{{asset('images/e4.PNG')}}" width="150" height="100" alt="" /></div></td>
+                        <td>
+                            <font color="#6D0075"><strong>5. Je peux aller tout droit:</strong></font><br>
+<li><input type="radio" name="question5" value="1"> oui</li>
+<li><input type="radio" name="question5" value="2"> non</li>
+
+<br></td></tr></table>
+                <table><tr><td>
+                            <div><img src="{{asset('images/f4.PNG')}}" width="150" height="100" alt="" /></div></td>
+                        <td>
+                            <font color="#6D0075"><strong>6.Le covoiturage permet de:</strong></font><br>
+                <li><input type="radio" name="question6" value="1"> réduire le risque d'accident</li>
+                <li><input type="radio" name="question6" value="2"> réduire les rejets de CO2</li>
+                <li><input type="radio" name="question6" value="3"> réduire les nuisances sonores </li>
+                <br></td></tr></table>
+                <table><tr><td>
+                            <div><img src="{{asset('images/g4.PNG')}}" width="150" height="100" alt="" /></div></td>
+                        <td>
+                <font color="#6D0075"><strong>7.J'ai suivi la formation conduite accompagnée à 15 ans, je pourrai conduire seul:</strong></font><br>
+                <li><input type="radio" name="question7" value="1"> à 17 ans</li>
+                <li><input type="radio" name="question7" value="2"> à 17 ans et demi</li>
+                <li><input type="radio" name="question7" value="3"> à 18 ans</li>
+                <br></td></tr></table>
+                <table><tr><td>
+                            <div><img src="{{asset('images/h4.PNG')}}" width="150" height="100" alt="" /></div></td>
+                        <td>
+                <font color="#6D0075"><strong>8.Le premier panneau indique:</strong></font><br>
+               <li> <input type="radio" name="question8" value="1">  un pont sur la chaussée</li>
+                <li><input type="radio" name="question8" value="2">  une voie de chemin de fer</li>
+                <li><input type="radio" name="question8" value="3"> un tunnel</li>
+               <li> <input type="radio" name="question8" value="4"> une obligation d'allumer les feux de croisement</li>
+                <br></td></tr></table>
+                <table><tr><td>
+                            <div><img src="{{asset('images/i4.PNG')}}" width="150" height="100" alt="" /></div></td>
+                        <td>
+                <font color="#6D0075"><strong>9.Sur un véhicule, les systèmes ABS (système d'antiblocage des roues) et AFU (aide au freinage d'urgence) sont utiles:</strong></font><br>
+               <li> <input type="radio" name="question9" value="1">en cas de freinage d'urgence</li>
+                <li><input type="radio" name="question9" value="2"> pour conserver une bonne trajectoire</li>
+                <li><input type="radio" name="question9" value="3"> lors de tous les freinages</li>
+                <br></td></tr></table>
+          
+<p align="center"> 
+<INPUT type="button" value="Score obtenu" onClick="getScore(this.form)">
+</p>
+
+</form>    </body></html>
+{% endblock %}
+{# empty Twig template #}

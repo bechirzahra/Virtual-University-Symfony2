@@ -1,0 +1,131 @@
+<?php
+
+namespace Symf\MyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ancienexamen
+ *
+ * @ORM\Table(name="ancienexamen", indexes={@ORM\Index(name="idEnseignant", columns={"idEnseignant"}), @ORM\Index(name="idModule", columns={"idModule"})})
+ * @ORM\Entity
+ */
+class Ancienexamen
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idAncienExamen", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idancienexamen;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var \Symf\MyBundle\Entity\FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="Symf\MyBundle\Entity\FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idEnseignant", referencedColumnName="id")
+     * })
+     */
+    private $idenseignant;
+
+    /**
+     * @var \Symf\MyBundle\Entity\Module
+     *
+     * @ORM\ManyToOne(targetEntity="Symf\MyBundle\Entity\Module")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idModule", referencedColumnName="idModule")
+     * })
+     */
+    private $idmodule;
+
+
+
+    /**
+     * Get idancienexamen
+     *
+     * @return integer 
+     */
+    public function getIdancienexamen()
+    {
+        return $this->idancienexamen;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Ancienexamen
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set idenseignant
+     *
+     * @param \Symf\MyBundle\Entity\FosUser $idenseignant
+     * @return Ancienexamen
+     */
+    public function setIdenseignant(\Symf\MyBundle\Entity\FosUser $idenseignant = null)
+    {
+        $this->idenseignant = $idenseignant;
+
+        return $this;
+    }
+
+    /**
+     * Get idenseignant
+     *
+     * @return \Symf\MyBundle\Entity\FosUser 
+     */
+    public function getIdenseignant()
+    {
+        return $this->idenseignant;
+    }
+
+    /**
+     * Set idmodule
+     *
+     * @param \Symf\MyBundle\Entity\Module $idmodule
+     * @return Ancienexamen
+     */
+    public function setIdmodule(\Symf\MyBundle\Entity\Module $idmodule = null)
+    {
+        $this->idmodule = $idmodule;
+
+        return $this;
+    }
+
+    /**
+     * Get idmodule
+     *
+     * @return \Symf\MyBundle\Entity\Module 
+     */
+    public function getIdmodule()
+    {
+        return $this->idmodule;
+    }
+}

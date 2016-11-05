@@ -1,0 +1,1 @@
+<?php return unserialize('a:3:{i:0;O:29:"Doctrine\\ORM\\Mapping\\OneToOne":6:{s:12:"targetEntity";s:7:"Choices";s:8:"mappedBy";N;s:10:"inversedBy";N;s:7:"cascade";a:1:{i:0;s:7:"persist";}s:5:"fetch";s:4:"LAZY";s:13:"orphanRemoval";b:0;}i:1;O:32:"JMS\\Serializer\\Annotation\\Groups":1:{s:6:"groups";a:1:{i:0;s:4:"list";}}i:2;O:32:"JMS\\Serializer\\Annotation\\Expose":0:{}}');

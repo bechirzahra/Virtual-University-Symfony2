@@ -1,0 +1,18 @@
+{% extends "MyAppUlearnBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block Erasebody%}
+    <div class="center ">
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    {% if app.session is not empty %}
+        {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>{% endif %}
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    </div>
+{% endblock %}

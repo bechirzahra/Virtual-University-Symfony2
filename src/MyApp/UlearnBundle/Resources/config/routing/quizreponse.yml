@@ -1,0 +1,30 @@
+quizreponse:
+    path:     /
+    defaults: { _controller: "MyAppUlearnBundle:QuizReponse:index" }
+
+quizreponse_show:
+    path:     /{id}/show
+    defaults: { _controller: "MyAppUlearnBundle:QuizReponse:show" }
+
+quizreponse_new:
+    path:     /new
+    defaults: { _controller: "MyAppUlearnBundle:QuizReponse:new" }
+
+quizreponse_create:
+    path:     /create
+    defaults: { _controller: "MyAppUlearnBundle:QuizReponse:create" }
+    methods:  POST|GET
+
+quizreponse_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MyAppUlearnBundle:QuizReponse:edit" }
+
+quizreponse_update:
+    path:     /{id}/update
+    defaults: { _controller: "MyAppUlearnBundle:QuizReponse:update" }
+    methods:  [POST, PUT]
+
+quizreponse_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MyAppChaimaBundle:QuizReponse:delete" }
+    methods:  [POST, DELETE]

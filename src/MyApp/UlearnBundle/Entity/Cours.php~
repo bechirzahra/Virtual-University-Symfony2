@@ -1,0 +1,97 @@
+<?php
+
+namespace MyApp\rihabBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Cours
+ *
+ * @ORM\Table(name="cours", indexes={@ORM\Index(name="idMatiere", columns={"idModule"}), @ORM\Index(name="idEnseignant", columns={"idEnseignant"}), @ORM\Index(name="idResponsable", columns={"idResponsable"})})
+ * @ORM\Entity
+ */
+class Cours
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idCours", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcours;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomCours", type="string", length=30, nullable=false)
+     */
+    private $nomcours;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="valider", type="boolean", nullable=true)
+     */
+    private $valider;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cheminCours", type="string", length=100, nullable=false)
+     */
+    private $chemincours;
+
+    /**
+     * @var \Module
+     *
+     * @ORM\ManyToOne(targetEntity="Module")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idModule", referencedColumnName="idModule")
+     * })
+     */
+    private $idmodule;
+
+    /**
+     * @var \FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idResponsable", referencedColumnName="id")
+     * })
+     */
+    private $idresponsable;
+
+    /**
+     * @var \FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idEnseignant", referencedColumnName="id")
+     * })
+     */
+    private $idenseignant;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="FosUser", mappedBy="idcours")
+     */
+    private $idetudiant;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idetudiant = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}

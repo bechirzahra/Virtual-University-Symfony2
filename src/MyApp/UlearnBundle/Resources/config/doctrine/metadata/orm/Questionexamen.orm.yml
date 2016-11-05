@@ -1,0 +1,71 @@
+Questionexamen:
+    type: entity
+    table: questionexamen
+    indexes:
+        idExamen:
+            columns:
+                - idExamen
+    id:
+        idquestion:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: idQuestion
+            generator:
+                strategy: IDENTITY
+    fields:
+        corps:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+        choix1:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+        choix2:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+        choix3:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+        choix4:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+        bonnereponse:
+            type: string
+            nullable: false
+            length: 200
+            fixed: false
+            comment: ''
+            column: bonneReponse
+        barem:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+    manyToOne:
+        idexamen:
+            targetEntity: Examen
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idExamen:
+                    referencedColumnName: idExamen
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

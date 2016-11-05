@@ -1,0 +1,16 @@
+	<!--  start page-heading -->
+	<div id="page-heading">
+		<h1>Comment faire ?</h1>
+	</div>
+	<!-- end page-heading -->
+	
+	{% for faq in faqs %}
+		<h2>{{faq.objet}}</h2>
+		<div>{{faq.contenu}}</div>
+		<br/>
+		<br/>
+	{% endfor %}
+
+</div>
+<!--  end content -->
+<div class="clear">&nbsp;</div>{# empty Twig template #}

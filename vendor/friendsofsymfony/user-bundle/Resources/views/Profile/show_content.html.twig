@@ -1,0 +1,56 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+<div class="content_center">
+<div class="profile">
+
+<div class="fos_user_user_show" align='center'>
+    
+    
+    <table class='styleTable' >
+       
+        <tr>
+            <th>
+                Mon PROFIL
+                </th>
+            </tr>
+        
+        <tr>
+    <td><p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p></td>
+           </tr>
+        <tr>
+
+  <td>  <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p> </td>
+             </tr>
+        <tr>
+
+    <td><p>Sexe: {{ user.sexe }}</p></td>
+        </tr>
+<tr>
+    <td><p>Nom: {{ user.nom }}</p></td>
+        
+    </tr>
+    <tr>
+        
+
+    <td><p>Prénom: {{ user.prenom }}</p> </td>
+            </tr>
+        <tr>
+
+    <td><p>date de naissance: {{ user.naissance | date('d/m/Y') }}</p> </td>
+        </tr>
+	
+	
+	<br/>
+	<br/>
+
+     </table>   
+        
+        <a href="{{ path('fos_user_profile_edit')}}">Modifier mes informations</a>
+	<br/>
+	<br/>
+	<a href="{{ path('fos_user_change_password')}}">Modifier le mot de passe</a>
+</div>
+
+</div>
+</div>

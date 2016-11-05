@@ -1,0 +1,64 @@
+Certification:
+    type: entity
+    table: certification
+    indexes:
+        idEtudiant:
+            columns:
+                - idAdmin
+    id:
+        idcertification:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: idCertification
+            generator:
+                strategy: IDENTITY
+    fields:
+        duree:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+        dateobtention:
+            type: date
+            nullable: false
+            comment: ''
+            column: dateObtention
+        nomcertif:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+            column: nomCertif
+    manyToOne:
+        idadmin:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idAdmin:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        idetudiant:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: idcertification
+            joinTable:
+                name: resultat
+                joinColumns:
+                    -
+                        name: idCertification
+                        referencedColumnName: idCertification
+                inverseJoinColumns:
+                    -
+                        name: idEtudiant
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

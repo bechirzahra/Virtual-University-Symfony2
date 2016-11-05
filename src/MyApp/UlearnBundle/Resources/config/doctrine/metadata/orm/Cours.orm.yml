@@ -1,0 +1,83 @@
+Cours:
+    type: entity
+    table: cours
+    indexes:
+        idMatiere:
+            columns:
+                - idModule
+        idEnseignant:
+            columns:
+                - idEnseignant
+        idResponsable:
+            columns:
+                - idResponsable
+    id:
+        idcours:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: idCours
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: date
+            nullable: false
+            comment: ''
+        nomcours:
+            type: string
+            nullable: false
+            length: 30
+            fixed: false
+            comment: ''
+            column: nomCours
+        valider:
+            type: boolean
+            nullable: true
+            comment: ''
+        chemincours:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+            column: cheminCours
+    manyToOne:
+        idmodule:
+            targetEntity: Module
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idModule:
+                    referencedColumnName: idModule
+            orphanRemoval: false
+        idresponsable:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idResponsable:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idenseignant:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idEnseignant:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        idetudiant:
+            targetEntity: FosUser
+            cascade: {  }
+            mappedBy: idcours
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

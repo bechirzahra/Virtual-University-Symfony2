@@ -1,0 +1,50 @@
+listStagePdf.html.twig
+
+</br></br></br></br></br></br>
+
+<h1>La liste des Stages</h1>
+</br></br></br>
+<table border="1" width="100%">
+    <tr>
+        <td> id </td>
+        <td> Enreprise </td>
+        <td> Duree </td>
+        <td>Domaine</td>
+        <td> Date </td>
+        <td> Description </td>
+       
+         {% for stage in stages %}
+        <tr>
+            <td>{{stage.idstage}}</td>
+            <td>{{stage.nomentreprise}}</td>
+            <td>{{stage.duree}}</td>
+            <td>{{stage.domaine}}</td>
+            <td>{{stage.date|date('D/M/Y')}}</td>
+            <td>{{stage.description}}</td>
+            
+         
+
+        </tr>
+{% endfor%}
+</tr>
+</table>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+h1 {
+    color: firebrick;
+    text-align: center;
+    font-size: 50px;
+    
+}
+
+td {
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+
+</style>
+</head>
+</html>

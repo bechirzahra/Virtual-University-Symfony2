@@ -1,0 +1,28 @@
+Questioncertif:
+    type: entity
+    table: questioncertif
+    indexes:
+        idCertification:
+            columns:
+                - idCertification
+    id:
+        idqcertif:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: idQCertif
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idcertification:
+            targetEntity: Certification
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idCertification:
+                    referencedColumnName: idCertification
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,74 @@
+{# empty Twig template #}
+{%extends "MyAppUlearnBundle::layout.html.twig"%}
+{% block title %} <title>Cours ULearn</title>{% endblock %}
+{%block espace%}
+<div class="gwlogo clearfix">
+{% if app.user is not null %}
+    <div class="field field-name-field-logo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img typeof="foaf:Image" src="{{asset('images/EspaceEt.png')}}" width="323" height="90" alt="ULearn" title="Ulearn" /></div> </div></div>
+
+{% endif %}
+</div>
+   {%endblock%}
+
+{% block nav %}
+ <div class="panel-panel panel-col-top">
+      <div class="inside"><div class="panel-pane pane-gwu-primary-navigation" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="menu-wrapper"><div id="menu-top"><div class="menu-block-wrapper menu-block-2 menu-name-menu-division-menu parent-mlid-0 menu-level-1">
+  <ul class="menu">
+      {% if app.user is not null %}
+<li class="first leaf has-children menu-mlid-784"><span title=""><a href="{{path("homeEt")}}">Acceuil</a></span></li>
+<li class="leaf has-children menu-mlid-785"><span title=""><a href="{{path("fos_user_profile_show")}}">Profil</a></span></li>
+<li class="leaf has-children menu-mlid-786"><span title=""><a href="{{path("my_app_cours_homepage")}}">Cours</a></span></li>
+<li class="leaf has-children menu-mlid-787"><span title=""><a href="{{path("testA")}}">Examen</a></span></li>
+<li class="last leaf has-children menu-mlid-1594"><span title=""><a href="{{path("listStageEt")}}">Stage</a></span></li>
+<li class="last leaf has-children menu-mlid-1598"><span title=""><a href="{{path("listC")}}">Evaluation</a></span></li>
+
+
+
+  
+      {% endif %}
+
+</ul>
+            </div>
+
+</div></div>  </div>
+
+  
+  </div>
+</div>
+    </div>
+
+{% endblock %}
+{%block Erasebody%} 
+    <link type="text/css" rel="stylesheet" href="{{asset('css/s1.css')}}" media="all" />
+    <script type="text/javascript" src="{{asset('js/jb2.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/jb1.js')}}"></script>
+    <h1><center>Catégories de cours</center></h1>
+<div class="tree well">
+    <ul>
+        {% for module in modules %}
+        <li>
+            <span><i class="icon-folder-open"></i> {{module.nomModule}}</span>
+            <ul>
+                {% for cour in cours %} 
+                    {% if( cour.__toString() == module.__toString() )%} 
+                <li>
+                	<a href="{{ cour.cheminCours }}"><span><i class="icon-minus-sign"></i>  {{cour.nomCours}} </span></a>
+                </li>
+                 {% endif %}
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+        
+    </ul>
+</div>
+   {# empty Twig template #}
+    
+
+
+{% endblock %}

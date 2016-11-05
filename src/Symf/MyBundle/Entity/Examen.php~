@@ -1,0 +1,208 @@
+<?php
+
+namespace Symf\MyBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Examen
+ *
+ * @ORM\Table(name="examen", indexes={@ORM\Index(name="idEnseignant", columns={"idEnseignant"}), @ORM\Index(name="idMatiere", columns={"idModule"})})
+ * @ORM\Entity
+ */
+class Examen
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idExamen", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idexamen;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="duree", type="string", length=30, nullable=false)
+     */
+    private $duree;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var \Symf\MyBundle\Entity\Module
+     *
+     * @ORM\ManyToOne(targetEntity="Symf\MyBundle\Entity\Module")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idModule", referencedColumnName="idModule")
+     * })
+     */
+    private $idmodule;
+
+    /**
+     * @var \Symf\MyBundle\Entity\FosUser
+     *
+     * @ORM\ManyToOne(targetEntity="Symf\MyBundle\Entity\FosUser")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idEnseignant", referencedColumnName="id")
+     * })
+     */
+    private $idenseignant;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Symf\MyBundle\Entity\FosUser", mappedBy="idexamen")
+     */
+    private $idetudiant;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idetudiant = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+
+    /**
+     * Get idexamen
+     *
+     * @return integer 
+     */
+    public function getIdexamen()
+    {
+        return $this->idexamen;
+    }
+
+    /**
+     * Set duree
+     *
+     * @param string $duree
+     * @return Examen
+     */
+    public function setDuree($duree)
+    {
+        $this->duree = $duree;
+
+        return $this;
+    }
+
+    /**
+     * Get duree
+     *
+     * @return string 
+     */
+    public function getDuree()
+    {
+        return $this->duree;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Examen
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set idmodule
+     *
+     * @param \Symf\MyBundle\Entity\Module $idmodule
+     * @return Examen
+     */
+    public function setIdmodule(\Symf\MyBundle\Entity\Module $idmodule = null)
+    {
+        $this->idmodule = $idmodule;
+
+        return $this;
+    }
+
+    /**
+     * Get idmodule
+     *
+     * @return \Symf\MyBundle\Entity\Module 
+     */
+    public function getIdmodule()
+    {
+        return $this->idmodule;
+    }
+
+    /**
+     * Set idenseignant
+     *
+     * @param \Symf\MyBundle\Entity\FosUser $idenseignant
+     * @return Examen
+     */
+    public function setIdenseignant(\Symf\MyBundle\Entity\FosUser $idenseignant = null)
+    {
+        $this->idenseignant = $idenseignant;
+
+        return $this;
+    }
+
+    /**
+     * Get idenseignant
+     *
+     * @return \Symf\MyBundle\Entity\FosUser 
+     */
+    public function getIdenseignant()
+    {
+        return $this->idenseignant;
+    }
+
+    /**
+     * Add idetudiant
+     *
+     * @param \Symf\MyBundle\Entity\FosUser $idetudiant
+     * @return Examen
+     */
+    public function addIdetudiant(\Symf\MyBundle\Entity\FosUser $idetudiant)
+    {
+        $this->idetudiant[] = $idetudiant;
+
+        return $this;
+    }
+
+    /**
+     * Remove idetudiant
+     *
+     * @param \Symf\MyBundle\Entity\FosUser $idetudiant
+     */
+    public function removeIdetudiant(\Symf\MyBundle\Entity\FosUser $idetudiant)
+    {
+        $this->idetudiant->removeElement($idetudiant);
+    }
+
+    /**
+     * Get idetudiant
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIdetudiant()
+    {
+        return $this->idetudiant;
+    }
+}

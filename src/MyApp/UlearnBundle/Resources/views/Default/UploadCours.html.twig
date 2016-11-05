@@ -1,0 +1,74 @@
+{%extends "MyAppUlearnBundle::layout.html.twig"%}
+
+
+
+{% block nav %}
+ <div class="panel-panel panel-col-top">
+      <div class="inside"><div class="panel-pane pane-gwu-primary-navigation" >
+  
+      
+  
+  <div class="pane-content">
+    <div id="menu-wrapper"><div id="menu-top"><div class="menu-block-wrapper menu-block-2 menu-name-menu-division-menu parent-mlid-0 menu-level-1">
+  <ul class="menu">
+      {% if app.user is not null %}
+<li class="first leaf has-children menu-mlid-784"><span title=""><a href="{{path("homeEns")}}">Acceuil</a></span></li>
+<li class="leaf has-children menu-mlid-785"><span title=""><a href="{{path("fos_user_profile_show")}}">Profil</a></span></li>
+<li class="leaf has-children menu-mlid-786"><span title=""><a href="{{path("my_app_cours_UploadCours")}}">Cours</a></span></li>
+<li class="leaf has-children menu-mlid-787"><span title=""><a href="{{path("ListeExamens")}}">Examen</a></span></li>
+
+
+
+  
+      {% endif %}
+
+</ul>
+            </div>
+
+</div></div>  </div>
+
+  
+  </div>
+</div>
+    </div>
+
+{% endblock %}
+
+   
+
+
+{% block title %} <title>Upload Cours ULearn</title>{% endblock %}
+{%block Erasebody%}
+    <br><br><br><br><br>
+<link rel="stylesheet" href="{{asset('css/s2.css')}}">
+<link rel="stylesheet" href="{{asset('css/u1.css')}}">
+<link rel="stylesheet" href="{{asset('css/jquery.fileupload.css')}}">
+<script type="text/javascript" src="{{asset('js/u2.js')}}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="{{asset('js/u3.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/u4.js')}}"></script>
+ 
+<form method="POST" enctype="multipart/form-data" action="{{path('my_app_cours_Upload')}}">
+          <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>Add files...</span>
+                    <input type="file" name="file">
+                </span>
+    <!-- Search box Start -->
+    <div class="well carousel-search hidden-sm">
+        <div class="btn-group"> <a class="btn btn-default dropdown-toggle btn-select" data-toggle="dropdown" href="#">Sélectionner un module <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                {% for module in modules %}
+                <li name="nomModule"><a href="#">{{module.nomModule}}</a></li>
+                
+                {% endfor %}
+            </ul>
+        </div>
+        <textarea id="textarea" class="input-xlarge" rows="1" name="nomCours">Nom Cours</textarea>
+        <script type="text/javascript" src="{{asset('js/u2.js')}}"></script>
+    </div>
+     <button type="submit" class="btn btn-primary">Add Cours</button>
+</form>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

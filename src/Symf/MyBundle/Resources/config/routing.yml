@@ -1,0 +1,25 @@
+symf_my_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SymfMyBundle:Default:index }
+Home:
+    pattern:     /home
+    defaults: { _controller: SymfMyBundle:Default:home }
+list_adh:
+    pattern:  /list_adh
+    defaults: { _controller: SymfMyBundle:Faq:listAdh }
+faq_list:
+    pattern:  list
+    defaults: { _controller: SymfMyBundle:Faq:list }   
+faq_ajouter:
+    pattern:  /faq/ajouter
+    defaults: { _controller: SymfMyBundle:Faq:ajouter }  
+faq_modifier:
+    pattern:  /faq/modifier/{id}/
+    defaults: { _controller: SymfMyBundle:Faq:modifier }
+faq_supprimer:
+    pattern:  /faq/supprimer/{id}/
+    defaults: { _controller:  SymfMyBundle:Faq:supprimer }
+faq_lisetudiant:
+    pattern:  /listetudiant
+    defaults: { _controller:  SymfMyBundle:Faqetudiant:listetudiant }
+      
